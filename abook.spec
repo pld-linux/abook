@@ -5,9 +5,6 @@ Version:	0.4.15
 Release:	1
 License:	GPL
 Group:		Applications/Mail
-Group(de):	Applikationen/Post
-Group(pl):	Aplikacje/Poczta
-Group(pt):	Aplicações/Correio Eletrônico
 Source0:	http://prdownloads.sourceforge.net/abook/%{name}-%{version}.tar.gz
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
