@@ -21,8 +21,8 @@ Abook is a text-based addressbook program designed to use with mutt
 mail client.
 
 %description -l pl
-Abook to pracuj±ca w trybie tekstowym ksi±¿ka adresowa zaprojektowana do
-u¿ycia z programem pocztowym mutt.
+Abook to pracuj±ca w trybie tekstowym ksi±¿ka adresowa zaprojektowana
+do u¿ycia z programem pocztowym mutt.
 
 %prep
 %setup -q
