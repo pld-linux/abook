@@ -1,8 +1,8 @@
 Summary:	Text-based addressbook program for mutt
 Summary(pl):	Tekstowa ksi±¿ka adresowa dla klienta pocztowego mutt
 Name:		abook
-Version:	0.4.11
-Release:	3
+Version:	0.4.12
+Release:	1
 License:	GPL
 Group:		Applications/Mail
 Group(de):	Applikationen/Post
