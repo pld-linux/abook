@@ -12,6 +12,7 @@ URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +28,6 @@ do u¿ycia z programem pocztowym mutt.
 #%patch0 -p1
 
 %build
-rm -f missing
 %{__autoheader}
 %{__aclocal}
 %{__autoconf}
