@@ -24,8 +24,9 @@ do u¿ycia z programem pocztowym mutt.
 %setup -q
 
 %build
-autoheader
-aclocal
+rm -f missing
+%{__autoheader}
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
