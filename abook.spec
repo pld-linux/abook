@@ -1,7 +1,7 @@
 Summary:	Text-based addressbook program
 Name:		abook
 Version:	0.4.11
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Group(de):	Applikationen/Post
@@ -17,9 +17,13 @@ Abook is a text-based addressbook program designed to use with mutt
 mail client.
 
 %prep
-%setup  -q
+%setup -q
+
 %build
-autoheader;autoconf;automake; 
+autoheader
+aclocal
+autoconf
+automake -a -c
 %configure 
 %{__make}
 
