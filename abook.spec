@@ -1,13 +1,13 @@
 Summary:	Text-based addressbook program
 Name:		abook
-Version:	0.4.10
+Version:	0.4.11
 Release:	1
+License:	GPL
 Group:		Applications/Mail
 Group(de):	Applikationen/Post
 Group(pl):	Aplikacje/Poczta
 Group(pt):	Aplicações/Correio Eletrônico
-License:	GPL
-Source0:	%{name}-%{version}.tar.gz
+Source0:	ftp://abook.sourceforge.net/pub/abook/%{name}-%{version}.tar.gz
 URL:		http://members.linuxstart.com/~jheinonen/abook/
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,7 +35,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,BUGS,ChangeLog,NEWS,README,THANKS,TODO}.gz
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
-%{_mandir}/man5/*
+%{_mandir}/man[15]/*
