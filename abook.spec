@@ -27,7 +27,7 @@ do u¿ycia z programem pocztowym mutt.
 autoheader
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 %{__make}
 
