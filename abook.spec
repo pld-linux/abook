@@ -2,7 +2,7 @@ Summary:	Text-based addressbook program for mutt
 Summary(pl):	Tekstowa ksi±¿ka adresowa dla klienta pocztowego mutt
 Name:		abook
 Version:	0.4.17
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/abook/%{name}-%{version}.tar.gz
@@ -36,13 +36,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS BUGS ChangeLog NEWS README THANKS TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS BUGS ChangeLog NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
