@@ -1,12 +1,12 @@
 Summary:	Text-based addressbook program for mutt
 Summary(pl):	Tekstowa ksi±¿ka adresowa dla klienta pocztowego mutt
 Name:		abook
-Version:	0.5.0
+Version:	0.5.1
 Release:	1
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://dl.sourceforge.net/abook/%{name}-%{version}.tar.gz
-# Source0-md5:	358630b5c5b4bb2097a51fe3cbe58297
+# Source0-md5:	3aaddb943845a875e53a0064b76a2f80
 Patch0:		%{name}-etc_dir.patch
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
