@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		Applications/Mail
 Source0:	http://dl.sourceforge.net/abook/%{name}-%{version}.tar.gz
+# Source0-md5:	ec1cbee2c10b677ecbeb36a144c5eaf0
 Patch0:		%{name}-etc_dir.patch
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
