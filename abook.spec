@@ -1,20 +1,25 @@
-Summary:	Text-based addressbook program
+Summary:	Text-based addressbook program for mutt
+Summary(pl):	Tekstowa ksi±¿ka adresowa dla klienta pocztowego mutt
 Name:		abook
 Version:	0.4.11
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Mail
 Group(de):	Applikationen/Post
 Group(pl):	Aplikacje/Poczta
 Group(pt):	Aplicações/Correio Eletrônico
 Source0:	ftp://abook.sourceforge.net/pub/abook/%{name}-%{version}.tar.gz
-URL:		http://members.linuxstart.com/~jheinonen/abook/
+URL:		http://abook.sourceforge.net/
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Abook is a text-based addressbook program designed to use with mutt
 mail client.
+
+%description -l pl
+Abook to pracuj±ca w trybie tekstowym ksi±¿ka adresowa zaprojektowana do
+u¿ycia z programem pocztowym mutt.
 
 %prep
 %setup -q
