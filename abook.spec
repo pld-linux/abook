@@ -5,7 +5,7 @@ Version:	0.4.16
 Release:	1
 License:	GPL
 Group:		Applications/Mail
-Source0:	http://prdownloads.sourceforge.net/abook/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/abook/%{name}-%{version}.tar.gz
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
