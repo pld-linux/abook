@@ -1,0 +1,78 @@
+--- ./abook.c.org	Fri Jun  8 22:39:00 2001
++++ ./abook.c	Fri Jun  8 22:41:54 2001
+@@ -584,8 +584,30 @@
+ 					database[item][NOTES]
+ 				);
+ }
+-
+ static int
++mutt_query_field(char *str, int field)
++{
++	int i, j;
++	char *tmp;
++
++	for(i = 0, j = 0 ; i < items; i++) {
++		if(database[i][field])
++			tmp = strdup(database[i][field]);
++		else
++			tmp =strdup("");
++		if( strstr( strupper(tmp), strupper(str) ) != NULL ) {
++			if( !j )
++				putchar('\n');
++			muttq_print_item(i);
++			j++;
++		}
++		free(tmp);
++	}
++
++	return j;
++}
++
++	static int
+ mutt_query_name(char *str)
+ {
+ 	int i, j;
+@@ -648,7 +670,9 @@
+ 		for(i = 0; i < items; i++)
+ 			muttq_print_item(i);
+ 	} else {
+-		if( !mutt_query_name(str) && !mutt_query_email(str) ) {
++		if( !mutt_query_name(str) && !mutt_query_email(str) &&
++			!(options_get_int("mutt_query_nick")&&
++				mutt_query_field(str,NICK))) {
+ 			printf("Not found\n");
+ 			quit_mutt_query(1);
+ 		}
+--- ./options.c.org	Fri Jun  8 22:39:00 2001
++++ ./options.c	Fri Jun  8 22:42:48 2001
+@@ -153,6 +153,7 @@
+ 
+ 	options_add_key("mutt_command", "mutt");
+ 	options_add_key("mutt_return_all_emails", "true");
++	options_add_key("mutt_query_nick", "false");
+ 
+ 	options_add_key("print_command", "lpr");
+ 
+--- ./abookrc.5.org	Fri Jun  8 22:44:42 2001
++++ ./abookrc.5	Fri Jun  8 22:47:27 2001
+@@ -79,6 +79,10 @@
+ Defines whether to return all email addresses matching the search criteria to a mutt query. Default is true.
+ 
+ .TP
++\fBmutt_query_nick\fP=[true|false]
++Define whether to query also in nicks or not. Default is false
++
++.TP
+ \fBprint_command\fP=command
+ Defines the command to used when printing the addressbook. Default is "lpr".
+ 
+@@ -131,6 +135,9 @@
+ 
+ # Return all email addresses to a mutt query
+ mutt_return_all_emails=true
++
++# Qery also in nick
++mutt_query_nick = true
+ 
+ # Command used to print
+ print_command=lpr

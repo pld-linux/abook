@@ -2,7 +2,7 @@ Summary:	Text-based addressbook program for mutt
 Summary(pl):	Tekstowa ksi±¿ka adresowa dla klienta pocztowego mutt
 Name:		abook
 Version:	0.4.12
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Mail
 Group(de):	Applikationen/Post
@@ -10,6 +10,7 @@ Group(pl):	Aplikacje/Poczta
 Group(pt):	Aplicações/Correio Eletrônico
 Source0:	ftp://abook.sourceforge.net/pub/abook/%{name}-%{version}.tar.gz
 URL:		http://abook.sourceforge.net/
+Patch0:		%{name}-nickquery.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
@@ -25,6 +26,7 @@ u¿ycia z programem pocztowym mutt.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 autoheader
