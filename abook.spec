@@ -28,6 +28,7 @@ do u¿ycia z programem pocztowym mutt.
 #%patch0 -p1
 
 %build
+cp -f /usr/share/automake/config.sub .
 %{__autoheader}
 %{__aclocal}
 %{__autoconf}
