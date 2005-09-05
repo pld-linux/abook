@@ -1,73 +1,44 @@
-diff -Nru abook-0.4.17/abook.c abook-0.4.17.new/abook.c
---- abook-0.4.17/abook.c	Tue Apr  2 20:45:47 2002
-+++ abook-0.4.17.new/abook.c	Sat Mar 22 14:14:51 2003
-@@ -63,7 +63,13 @@
- 	/*if( options_get_int("datafile", "autosave") )*/
+diff -burN abook-0.5.4.orig/abook.c abook-0.5.4/abook.c
+--- abook-0.5.4.orig/abook.c	2005-09-05 09:05:10.903458032 +0200
++++ abook-0.5.4/abook.c	2005-09-05 09:17:13.733571152 +0200
+@@ -70,13 +70,15 @@
+ {
+ 	struct stat s;
+ 	char *dir;
++	char *home;
  
- 	if( load_database(datafile) == 2 ) {
--		char *tmp = strconcat(getenv("HOME"),
-+		char *config_dir = getenv("CONFIG_DIR");
-+		char *tmp;
-+    
-+		if (config_dir)
-+			tmp = strconcat(config_dir, "/" CONFIG_DIR_DATAFILE, NULL);
-+		else
-+			tmp = strconcat(getenv("HOME"),
- 				"/" DATAFILE, NULL);
+ 	assert(!is_ui_initialized());
  
- 		if( safe_strcmp(tmp, datafile) ) {
-@@ -119,17 +125,22 @@
+ 	if(alternative_datafile)
+ 		return;
+ 
+-	dir = strconcat(getenv("HOME"), "/" DIR_IN_HOME, NULL);
++	home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
++	dir = strconcat(home, "/" DIR_IN_HOME, NULL);
+ 	assert(dir != NULL);
+ 
+ 	if(stat(dir, &s) == -1) {
+@@ -207,18 +209,21 @@
  set_filenames()
  {
  	struct stat s;
-+	char *config_dir = getenv("CONFIG_DIR");
-+	if (config_dir) {
-+		if (!datafile)
-+			datafile = strconcat(config_dir, "/" CONFIG_DIR_DATAFILE, NULL);
-+		rcfile = strconcat(config_dir, "/" CONFIG_DIR_RCFILE, NULL);
-+	} else {
-+		if( (stat(getenv("HOME"), &s)) == -1 || ! S_ISDIR(s.st_mode) ) {
-+			fprintf(stderr,"%s is not a valid HOME directory\n", getenv("HOME") );
-+			exit(1);
-+		}
++	char * home;
  
--	if( (stat(getenv("HOME"), &s)) == -1 || ! S_ISDIR(s.st_mode) ) {
--		fprintf(stderr,"%s is not a valid HOME directory\n", getenv("HOME") );
--		exit(1);
--	}
--
--	if (!datafile)
--		datafile = strconcat(getenv("HOME"), "/" DATAFILE, NULL);
--
--	rcfile = strconcat(getenv("HOME"), "/" RCFILE, NULL);
-+		if (!datafile)
-+			datafile = strconcat(getenv("HOME"), "/" DATAFILE, NULL);
+ 	if( (stat(getenv("HOME"), &s)) == -1 || ! S_ISDIR(s.st_mode) ) {
+ 		fprintf(stderr,"%s is not a valid HOME directory\n", getenv("HOME") );
+ 		exit(EXIT_FAILURE);
+ 	}
  
-+		rcfile = strconcat(getenv("HOME"), "/" RCFILE, NULL);
-+	}
++	home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
++
+ 	if(!datafile)
+-		datafile = strconcat(getenv("HOME"), "/" DIR_IN_HOME "/"
++		datafile = strconcat(home, "/" DIR_IN_HOME "/"
+ 				DATAFILE, NULL);
+ 
+ 	if(!rcfile)
+-		rcfile = strconcat(getenv("HOME"), "/" DIR_IN_HOME "/"
++		rcfile = strconcat(home, "/" DIR_IN_HOME "/"
+ 				RCFILE, NULL);
+ 
  	atexit(free_filenames);
- }
- 
-diff -Nru abook-0.4.17/abook.h abook-0.4.17.new/abook.h
---- abook-0.4.17/abook.h	Sat Sep 29 16:44:10 2001
-+++ abook-0.4.17.new/abook.h	Sat Mar 22 14:08:42 2003
-@@ -24,7 +24,7 @@
- 
- #define DEFAULT_UMASK	066
- #define DATAFILE	".abook.addressbook"
--
-+#define CONFIG_DIR_DATAFILE "abook.addressbook"
- /*
-  * some "abookwide" useful macros
-  */
-diff -Nru abook-0.4.17/options.h abook-0.4.17.new/options.h
---- abook-0.4.17/options.h	Mon Apr 23 14:58:43 2001
-+++ abook-0.4.17.new/options.h	Sat Mar 22 14:09:11 2003
-@@ -2,6 +2,7 @@
- #define _OPTIONS_H
- 
- #define RCFILE		".abookrc"
-+#define CONFIG_DIR_RCFILE "abookrc"
- #define SYSWIDE_RCFILE	"/etc/abookrc"
- 
- #include "conff.h"
