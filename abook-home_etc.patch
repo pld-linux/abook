@@ -25,7 +25,7 @@ diff -burN abook-0.5.4.orig/abook.c abook-0.5.4/abook.c
 +	char * home;
  
  	if( (stat(getenv("HOME"), &s)) == -1 || ! S_ISDIR(s.st_mode) ) {
- 		fprintf(stderr,"%s is not a valid HOME directory\n", getenv("HOME") );
+ 		fprintf(stderr,_("%s is not a valid HOME directory\n"), getenv("HOME") );
  		exit(EXIT_FAILURE);
  	}
  
