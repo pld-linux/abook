@@ -11,6 +11,7 @@ Patch0:		%{name}-home_etc.patch
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel >= 0.14.1
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,7 +29,7 @@ do u¿ycia z programem pocztowym mutt.
 %patch0 -p1
 
 %build
-%{__autoheader}
+%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
