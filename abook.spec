@@ -8,6 +8,7 @@ Group:		Applications/Mail
 Source0:	http://dl.sourceforge.net/abook/%{name}-%{version}.tar.gz
 # Source0-md5:	87d25df96864a7c507a4965e6d1da49d
 Patch0:		%{name}-home_etc.patch
+Patch1:		http://abook.sourceforge.net/patches/0.5.6-01_editor
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -27,6 +28,7 @@ do u¿ycia z programem pocztowym mutt.
 %prep
 %setup -q
 %patch0 -p1
+%patch1
 
 %build
 %{__gettextize}
