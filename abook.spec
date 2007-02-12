@@ -1,5 +1,5 @@
 Summary:	Text-based addressbook program for mutt
-Summary(pl.UTF-8):   Tekstowa książka adresowa dla klienta pocztowego mutt
+Summary(pl.UTF-8):	Tekstowa książka adresowa dla klienta pocztowego mutt
 Name:		abook
 Version:	0.5.6
 Release:	1
