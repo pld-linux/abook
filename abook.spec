@@ -1,5 +1,5 @@
 Summary:	Text-based addressbook program for mutt
-Summary(pl):	Tekstowa ksi±¿ka adresowa dla klienta pocztowego mutt
+Summary(pl.UTF-8):   Tekstowa ksiÄ…Å¼ka adresowa dla klienta pocztowego mutt
 Name:		abook
 Version:	0.5.6
 Release:	1
@@ -21,9 +21,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Abook is a text-based addressbook program designed to use with mutt
 mail client.
 
-%description -l pl
-Abook to pracuj±ca w trybie tekstowym ksi±¿ka adresowa zaprojektowana
-do u¿ycia z programem pocztowym mutt.
+%description -l pl.UTF-8
+Abook to pracujÄ…ca w trybie tekstowym ksiÄ…Å¼ka adresowa zaprojektowana
+do uÅ¼ycia z programem pocztowym mutt.
 
 %prep
 %setup -q
