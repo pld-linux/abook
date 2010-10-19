@@ -1,0 +1,19 @@
+--- configure.in.orig	2010-10-19 13:37:19.861388909 +0200
++++ configure.in	2010-10-19 13:37:34.211388910 +0200
+@@ -84,14 +84,14 @@
+ 	fi])
+ 
+ AC_CHECK_LIB(ncursesw, initscr,
+-	[LIBS="$LIBS -lncursesw"
++	[LIBS="$LIBS -lncursesw -ltinfow"
+ 	if test x$abook_cv_curses = x/usr -a -d /usr/include/ncursesw; then
+ 		CPPFLAGS="$CPPFLAGS -I/usr/include/ncursesw"
+ 	fi
+ 	AC_CHECK_HEADERS(ncurses.h)],[
+ 	ac_widec_possible=no
+ 	AC_CHECK_LIB(ncurses, initscr,
+-		[LIBS="$LIBS -lncurses"
++		[LIBS="$LIBS -lncurses -ltinfo"
+ 		if test x$abook_cv_curses = x/usr -a -d /usr/include/ncurses; then
+ 			CPPFLAGS="$CPPFLAGS -I/usr/include/ncurses"
+ 		fi
