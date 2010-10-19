@@ -11,7 +11,7 @@ Source0:	http://abook.sourceforge.net/devel/%{name}-%{version}%{_rel}.tar.gz
 # Source0-md5:	1e4a7210b3507db7b3d47ee7a2457934
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-tinfo_link.patch
-Patch2:		http://abook.sourceforge.net/patches/abook_vcard_import.patch
+Patch2:		%{name}-vcard_import.patch
 URL:		http://abook.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
