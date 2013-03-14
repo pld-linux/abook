@@ -12,10 +12,11 @@ Source0:	http://abook.sourceforge.net/devel/%{name}-%{version}%{subver}.tar.gz
 Patch0:		%{name}-tinfo_link.patch
 Patch1:		%{name}-vcard_import.patch
 Patch2:		%{name}-ea5caf0.patch
+Patch3:		%{name}-am.patch
 URL:		http://abook.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-devel >= 0.18.1
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,11 +31,17 @@ do użycia z programem pocztowym mutt.
 
 %prep
 %setup -q -n %{name}-%{version}%{subver}
-%patch0
+%patch0 -p0
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
+%{__gettextize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 

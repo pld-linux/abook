@@ -1,0 +1,13 @@
+--- abook-0.6.0pre2/configure.ac.orig	2013-03-14 19:05:29.494683245 +0100
++++ abook-0.6.0pre2/configure.ac	2013-03-14 19:11:30.378009058 +0100
+@@ -44,10 +44,6 @@
+ 
+ AC_PROG_CC
+ AC_SEARCH_LIBS([strerror],[cposix])
+-AM_C_PROTOTYPES
+-if test "x$U" != "x"; then
+-	AC_MSG_ERROR(Compiler not ANSI compliant)
+-fi
+ AC_C_INLINE
+ AC_PROG_INSTALL
+ AC_HEADER_STDC
