@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog README THANKS TODO
+%doc AUTHORS BUGS ChangeLog README THANKS TODO sample.abookrc RELEASE_NOTES
 %attr(755,root,root) %{_bindir}/abook
 %{_mandir}/man1/abook.1*
 %{_mandir}/man5/abookrc.5*
