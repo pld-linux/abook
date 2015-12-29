@@ -1,0 +1,24 @@
+diff -urN abook-0.6.1.orig/database.c abook-0.6.1/database.c
+--- abook-0.6.1.orig/database.c	2015-12-29 11:45:22.738615735 +0100
++++ abook-0.6.1/database.c	2015-12-29 11:45:56.615176646 +0100
+@@ -859,7 +859,7 @@
+  */
+ 
+ /* quick lookup by "standard" field number */
+-inline int
++int
+ field_id(int i)
+ {
+ 	assert((i >= 0) && (i < ITEM_FIELDS));
+diff -urN abook-0.6.1.orig/database.h abook-0.6.1/database.h
+--- abook-0.6.1.orig/database.h	2015-12-29 11:45:22.738615735 +0100
++++ abook-0.6.1/database.h	2015-12-29 11:45:48.475202058 +0100
+@@ -61,7 +61,7 @@
+ /*
+  * Field operations
+  */
+-inline int field_id(int i);
++int field_id(int i);
+ abook_field *find_standard_field(char *key, int do_declare);
+ abook_field *real_find_field(char *key, abook_field_list *list, int *nb);
+ #define find_field(key, list)		real_find_field(key, list, NULL)
